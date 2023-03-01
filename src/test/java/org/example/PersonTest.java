@@ -8,15 +8,19 @@ import java.time.LocalDateTime;
 
 public class PersonTest {
 
-    @Test
+    @Test  // test annotation
     void shouldCalculateAgeCorrectly() {
-        Person julia = new Person("julia", LocalDate.of(2000, 1, 1).atStartOfDay());
+
+        // create a scenario
+        Person julia = new Person("julia", LocalDateTime.of(2000, 1, 1, 15, 0, 0));
+
+        // run validations
         Assertions.assertEquals(23, julia.getAge());
     }
 
     @Test
     void shouldReturnIsAdult() {
-        Person julia = new Person("julia", LocalDate.of(2000, 1, 1).atStartOfDay());
+        Person julia = new Person("julia", LocalDateTime.of(2000, 1, 1, 15, 0, 0));
         Assertions.assertTrue(julia.isAdult());
 
         Person john = new Person("john", LocalDateTime.now());
